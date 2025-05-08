@@ -8,7 +8,6 @@ import {
   FaGamepad,
   FaNewspaper,
   FaLightbulb,
-  FaHistory,
 } from "react-icons/fa";
 
 const categories = [
