@@ -32,7 +32,9 @@ class AuthService {
       });
     } catch (error) {
       console.error("Login error:", error);
-      res.status(500).json({ message: "Server error: " + error.message });
+      res
+        .status(500)
+        .json({ message: `Server error: ${error.message}`, error: error });
     }
   }
 
@@ -57,7 +59,9 @@ class AuthService {
       res.status(201).json({ message: "User registered successfully" });
     } catch (error) {
       console.error("Registration error:", error);
-      res.status(500).json({ message: "Server error: " + error.message });
+      res
+        .status(500)
+        .json({ message: `Server error: ${error.message}`, error: error });
     }
   }
 
@@ -82,7 +86,9 @@ class AuthService {
       res.status(201).json({ message: "Creator account created successfully" });
     } catch (error) {
       console.error("Creator creation error:", error);
-      res.status(500).json({ message: "Server error: " + error.message });
+      res
+        .status(500)
+        .json({ message: `Server error: ${error.message}`, error: error });
     }
   }
 
