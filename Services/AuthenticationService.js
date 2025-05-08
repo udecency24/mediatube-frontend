@@ -32,7 +32,7 @@ class AuthService {
       });
     } catch (error) {
       console.error("Login error:", error);
-      res.status(500).json({ message: "Server error" });
+      res.status(500).json({ message: "Server error: " + error.message });
     }
   }
 
@@ -57,7 +57,7 @@ class AuthService {
       res.status(201).json({ message: "User registered successfully" });
     } catch (error) {
       console.error("Registration error:", error);
-      res.status(500).json({ message: "Server error" });
+      res.status(500).json({ message: "Server error: " + error.message });
     }
   }
 
@@ -82,7 +82,7 @@ class AuthService {
       res.status(201).json({ message: "Creator account created successfully" });
     } catch (error) {
       console.error("Creator creation error:", error);
-      res.status(500).json({ message: "Server error" });
+      res.status(500).json({ message: "Server error: " + error.message });
     }
   }
 
@@ -92,15 +92,11 @@ class AuthService {
 
     if (!token) return res.sendStatus(401);
 
-    jwt.verify(
-      token,
-      process.env.JWT_SECRET || "your_jwt_secret",
-      (err, user) => {
-        if (err) return res.sendStatus(403);
-        req.user = user;
-        next();
-      }
-    );
+    jwt.verify(token, process.env.JWT_SECRET || "@dm1n4321", (err, user) => {
+      if (err) return res.sendStatus(403);
+      req.user = user;
+      next();
+    });
   }
 }
 

@@ -21,7 +21,7 @@ class VideoService {
       res.json(mediaList);
     } catch (error) {
       console.error("Error fetching videos:", error);
-      res.status(500).json({ message: "Server error" });
+      res.status(500).json({ message: "Server error: " + error.message });
     }
   }
 
@@ -72,7 +72,7 @@ class VideoService {
       res.json(video);
     } catch (error) {
       console.error("Error fetching video:", error);
-      res.status(500).json({ message: "Server error" });
+      res.status(500).json({ message: "Server error: " + error.message });
     }
   }
 
@@ -122,7 +122,7 @@ class VideoService {
       res.status(201).json({ message: "Video uploaded successfully", blobUrl });
     } catch (error) {
       console.error("Upload error:", error);
-      res.status(500).json({ message: "Server error" });
+      res.status(500).json({ message: "Server error: " + error.message });
     }
   }
 
@@ -187,7 +187,7 @@ class VideoService {
       res.status(201).json({ message: "Rating submitted successfully" });
     } catch (error) {
       console.error("Rating error:", error);
-      res.status(500).json({ message: "Server error" });
+      res.status(500).json({ message: "Server error: " + error.message });
     }
   }
 
@@ -220,7 +220,7 @@ class VideoService {
       res.json(mediaList);
     } catch (error) {
       console.error("Error fetching videos by genre:", error);
-      res.status(500).json({ message: "Server error" });
+      res.status(500).json({ message: "Server error: " + error.message });
     }
   }
 
@@ -273,7 +273,7 @@ class VideoService {
       res.json(comments);
     } catch (error) {
       console.error("Error fetching comments:", error);
-      res.status(500).json({ message: "Server error" });
+      res.status(500).json({ message: "Server error: " + error.message });
     }
   }
 
@@ -301,7 +301,7 @@ class VideoService {
       res.json(ratings);
     } catch (error) {
       console.error("Error fetching ratings:", error);
-      res.status(500).json({ message: "Server error" });
+      res.status(500).json({ message: "Server error: " + error.message });
     }
   }
 }
